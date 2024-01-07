@@ -26,4 +26,14 @@ jobs:
         run: /usr/bin/kicad-cli-nightly version
         # /usr/bin/kicad-cli-nightly
 
+      - name: Check Schematics with ERC
+        run: /usr/bin/kicad-cli-nightly version
+        # /usr/bin/kicad-cli-nightly
+
+      - name: Check PCB with DRC
+        run: /usr/bin/kicad-cli-nightly version
+        # /usr/bin/kicad-cli-nightly
+
+      - name: Export PDF from schematics
+        run: /usr/bin/kicad-cli-nightly sch export pdf xxx.sch
 
