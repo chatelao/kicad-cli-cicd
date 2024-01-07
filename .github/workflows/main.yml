@@ -1,1 +1,20 @@
+name: PlatformIO CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install xmllint
+        run: |
+          sudo add-apt-repository ppa:kicad/kicad-dev-nightly \
+          sudo apt update
+          
+      - name: Install KiCAD (nightl)
+        run: sudo apt install kicad-nightly
+        
+      - name: Get KiCad version
+        run: kicad-cli version
 
