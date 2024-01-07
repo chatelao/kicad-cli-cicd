@@ -18,6 +18,9 @@ jobs:
       - name: Get KiCad version
         run: kicad-cli-nightly version
 
+      - name: Get KiCad version
+        run: ls -R $GITHUB_WORKSPACE
+
       - name: Check Schematics with ERC
         run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
 
