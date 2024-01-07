@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Install xmllint
         run: |
-          sudo add-apt-repository ppa:kicad/kicad-dev-nightly \
+          sudo add-apt-repository ppa:kicad/kicad-dev-nightly
           sudo apt update
           
       - name: Install KiCAD (nightl)
