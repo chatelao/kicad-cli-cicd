@@ -20,16 +20,16 @@ jobs:
 
 # https://docs.kicad.org/master/en/cli/cli.html
       - name: Run ERC on SCH(ematics)
-        run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
+        run: /usr/bin/kicad-cli-nightly sch erc --output schematic.rpt $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
 
       - name: Run DRC on PCB (Board)
-        run: /usr/bin/kicad-cli-nightly pcb drc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
+        run: /usr/bin/kicad-cli-nightly pcb drc --output board.rpt $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
 
       - name: Export PDF from SCH
-        run: /usr/bin/kicad-cli-nightly sch export pdf $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
+        run: /usr/bin/kicad-cli-nightly sch export pdf --output schematic.pdf $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
         
       - name: Export PDF from PCB
-        run: /usr/bin/kicad-cli-nightly pcb export pdf -l F.Cu,B.Cu,F.Silkscreen,B.Silkscreen $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
+        run: /usr/bin/kicad-cli-nightly pcb export pdf -l F.Cu,B.Cu,F.Silkscreen,B.Silkscreen --output board.pdf $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
 
       - name: Get KiCad version
         run: ls -R .
@@ -37,11 +37,9 @@ jobs:
       - name: Copy all firmwares for for packaging
         run: |
           mkdir downloads
-          cd .pio/build
-          find . -name '*.pdf'  | cpio -pdm ../../downloads
-          find . -name '*.rpt'  | cpio -pdm ../../downloads
-          find . -name '*.json' | cpio -pdm ../../downloads
-          cd ../..
+          find . -name '*.pdf'  | cpio -pdm downloads
+          find . -name '*.rpt'  | cpio -pdm downloads
+          find . -name '*.json' | cpio -pdm downloads
 
       - name: Package and upload all firmwares for download
         uses: actions/upload-artifact@v3
