@@ -18,9 +18,7 @@ jobs:
       - name: Get KiCad version
         run: kicad-cli-nightly version
 
-      - name: Get KiCad version
-        run: ls -R $GITHUB_WORKSPACE
-
+# https://docs.kicad.org/master/en/cli/cli.html
       - name: Run ERC on SCH(ematics)
         run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
 
@@ -32,3 +30,6 @@ jobs:
         
       - name: Export PDF from PCB
         run: /usr/bin/kicad-cli-nightly pcb export pdf $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
+
+      - name: Get KiCad version
+        run: ls -R .
