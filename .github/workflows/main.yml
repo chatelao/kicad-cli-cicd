@@ -33,3 +33,18 @@ jobs:
 
       - name: Get KiCad version
         run: ls -R .
+        
+      - name: Copy all firmwares for for packaging
+        run: |
+          mkdir downloads
+          cd .pio/build
+          find . -name '*.pdf'  | cpio -pdm ../../downloads
+          find . -name '*.rpt'  | cpio -pdm ../../downloads
+          find . -name '*.json' | cpio -pdm ../../downloads
+          cd ../..
+
+      - name: Package and upload all firmwares for download
+        uses: actions/upload-artifact@v3
+        with: 
+          name: all-output-for-download
+          path: downloads
