@@ -22,7 +22,7 @@ jobs:
         run: ls -R $GITHUB_WORKSPACE
 
       - name: Run ERC on SCH(ematics)
-        run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/kicad-cli-cicd/mini_cicd_tests/mini_cicd_tests.kicad_pcb
+        run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/kicad-cli-cicd/mini_cicd_tests/mini_cicd_tests.kicad_sch
 
       - name: Run DRC on PCB (Board)
         run: /usr/bin/kicad-cli-nightly pcb drc $GITHUB_WORKSPACE/kicad-cli-cicd/mini_cicd_tests/mini_cicd_tests.kicad_pcb
