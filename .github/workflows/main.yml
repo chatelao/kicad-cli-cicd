@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install xmllint
+      - name: Add KiCAD APT reposity
         run: |
           sudo add-apt-repository ppa:kicad/kicad-dev-nightly
           sudo apt update
           
-      - name: Install KiCAD (nightl)
+      - name: Install KiCAD (nightly build)
         run: sudo apt install kicad-nightly
         
       - name: Get KiCad version
