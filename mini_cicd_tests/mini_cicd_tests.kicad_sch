@@ -566,7 +566,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Battery:Battery_Panasonic_CR2025-V1AK_Vertical_CircularHoles"
 			(at 83.82 81.026 90)
 			(effects
 				(font
@@ -627,7 +627,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "470R"
 			(at 105.41 78.7399 0)
 			(effects
 				(font
@@ -636,7 +636,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 101.092 77.47 90)
 			(effects
 				(font
@@ -706,7 +706,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 102.87 88.9 0)
 			(effects
 				(font
