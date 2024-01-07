@@ -13,7 +13,7 @@ jobs:
           sudo apt update
           
       - name: Install KiCAD (nightl)
-        run: sudo apt install kicad-nightly
+        run: sudo apt --install-recommends kicad-nightly
         
       - name: Get KiCad version
         run: kicad-cli version
