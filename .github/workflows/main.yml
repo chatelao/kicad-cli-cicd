@@ -13,11 +13,6 @@ jobs:
           
       - name: Install KiCAD (nightly build)
         run: sudo apt install kicad-nightly
-        
-      - name: Get KiCad version
-        run: |
-          ls -ltR /usr
-          ls -ltR /var
 
       - name: Get KiCad version
         run: kicad-cli-nightly version
