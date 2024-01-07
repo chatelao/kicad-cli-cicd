@@ -4,8 +4,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v3
+
       - name: Add KiCAD APT reposity
         run: |
           sudo add-apt-repository ppa:kicad/kicad-dev-nightly
@@ -18,7 +19,7 @@ jobs:
         run: kicad-cli-nightly version
 
       - name: Check Schematics with ERC
-        run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_sch
+        run: /usr/bin/kicad-cli-nightly sch erc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
 
       - name: Check PCB with DRC
         run: /usr/bin/kicad-cli-nightly pcb drc $GITHUB_WORKSPACE/mini_cicd_tests/mini_cicd_tests.kicad_pcb
