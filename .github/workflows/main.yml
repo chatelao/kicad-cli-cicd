@@ -20,5 +20,10 @@ jobs:
           ls -ltR /var
 
       - name: Get KiCad version
-        run: kicad-cli version
+        run: kicad-cli-nightly version
+
+      - name: Get KiCad version
+        run: /usr/bin/kicad-cli-nightly version
+        # /usr/bin/kicad-cli-nightly
+
 
